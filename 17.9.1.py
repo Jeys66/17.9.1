@@ -60,7 +60,7 @@ print(number_list)
 
 
 def binary_search(number_list, number_user, left, right):
-     if left > right:  # если левая граница превысила правую,
+     if number_list[left]>number_user:  # если введенное число меньше первого элемента
          return False  # значит элемент отсутствует
 
      middle = (right + left) // 2  # находим середину
@@ -73,4 +73,7 @@ def binary_search(number_list, number_user, left, right):
          return binary_search(number_list, number_user, middle + 1, right)
 
 
-print("Позиция элемента меньше введенного числа:", binary_search(number_list, number_user, -1,  len(number_list)))
+try:
+    print("Позиция элемента меньше введенного числа:", binary_search(number_list, number_user, -1,  len(number_list)))
+except IndexError:
+    print('Число больше всех введенных чисел')
